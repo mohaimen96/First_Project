@@ -1,0 +1,42 @@
+Local repo normal tasks:
+---------------------------------------------------------------------------------------
+git init                      [Initialize git repo in current directory]
+git status                    [shows current status, changes, staging etc. Very important]
+git log                       [shows all commits and their author, timestamp and hashes]
+git log --oneline             [view all commits in one line for each]
+git log --oneline --decorate --all --graph     [good for working with multiple branches]
+git add filename              [Add file to staging area]
+git add -A                    [Add all files to staging area]
+git rm filename               [remove a file and add this event to staging area]
+git commit -m "msg"           [Make a commit with message msg, i.e makes a new version. This is the most important]
+git commit -amend -m "msg"    [Edit last commit]
+git diff filename             [view difference between file in working dir and repo]
+git revert #hash              [do exact opposite of a commit and then commit it. Better than git reset bcz doens't change history]
+git revert -m #hash           [do exact opposite of a commit and then stage it - ready for commit]
+git reset HEAD filename       [unstage a file that was accidentally staged]
+git reset --hard #hash        [go back to prev version. Changes git history, this is not good]
+git checkout #hash            [go back to prev version, keeping all versions, but HEAD detached]
+git checkout --filename       [restore file to HEAD version, i.e undo all recent changes]
+git checkout #hash --filename [restore file to hash version]
+git clean -f -d               [remove untracked files and folders]
+
+Local repo branching
+-----------------------------------------------------------------------------
+git branch                    [view all branches]
+git branch --merged           [view all branches that are completely merged with current]
+git branch name               [creates new branch]
+git checkout name             [make everything in working dir look like given branch]
+git merge name                [merges current branch with given branch and makes a new commit, conflicts may occur]
+git branch -m src_br dst_br   [rename branch]
+git branch -d name            [deletes a branch]
+git diff branch1..branch2     [shows differences between 2 branches]
+
+Remote repo tasks
+------------------------------------------------------------------------------
+git clone url .               [Clone repo from url to current dir]
+git remote add origin url     [specify remote repo. No need to use it if used git clone]
+git remote -v                 [view info about remote repo origin]
+git fetch                     [fetch all changes from remote repo but not merge yet]
+git pull                      [git fetch + git merge. do this everytime before pushing changes to make sure everythings is synced]
+git push -u origin branchname [push current local branch to remote branch given]
+git push origin --delete br   [delete remote branch]
